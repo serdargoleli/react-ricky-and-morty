@@ -30,9 +30,11 @@ export default function Characters(props) {
         <FooterInfo dataInfo={props.dataInfo}>
           <strong> {props.data.length} </strong>
         </FooterInfo>
-        <Button className="w-25 mx-auto mb-4" color="primary" onClick={() => props.getData(props.dataInfo.next)}>
-          Daha Fazla Görüntüle
-        </Button>
+        <Col xs="12" lg="4" className="offset-lg-4">
+          <Button className="w-100 mx-auto mb-4 " color="primary" onClick={() => props.getData(props.dataInfo.next)}>
+            Daha Fazla Görüntüle
+          </Button>
+        </Col>
       </Row>
     </Container>
   );

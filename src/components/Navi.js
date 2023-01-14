@@ -14,7 +14,7 @@ export default function Navi(props) {
           <NavbarBrand tag={Link} to="/">
             The Rick And Morty
           </NavbarBrand>
-          | Characters
+          <span className="brand-text">| Characters</span>
         </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
