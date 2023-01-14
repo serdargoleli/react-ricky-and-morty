@@ -1,0 +1,39 @@
+import React from "react";
+
+import { Container, Row, Col, Button } from "reactstrap";
+import CharacterCard from "./CharacterCard";
+
+function ViewCard(props) {
+  if (props.data) {
+    return props.data.map((character) => (
+      <Col xs="6" md="4" lg="3" className="mb-4" key={character.name + character.id}>
+        <CharacterCard data={character} />
+      </Col>
+    ));
+  }
+}
+function FooterInfo(props) {
+  if (props.dataInfo) {
+    return (
+      <p className="text-muted text-center">
+        Toplam {props.dataInfo.count} kayıttan {props.children} kayıt gösteriliyor.
+      </p>
+    );
+  }
+}
+
+export default function Characters(props) {
+  return (
+    <Container>
+      <Row>
+        <ViewCard data={props.data} />
+        <FooterInfo dataInfo={props.dataInfo}>
+          <strong> {props.data.length} </strong>
+        </FooterInfo>
+        <Button className="w-25 mx-auto mb-4" color="primary" onClick={() => props.getData(props.dataInfo.next)}>
+          Daha Fazla Görüntüle
+        </Button>
+      </Row>
+    </Container>
+  );
+}
